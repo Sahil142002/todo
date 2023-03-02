@@ -22,6 +22,21 @@
 // }
 // getItems();
 
+import db from './firebase.js';
+
+const btn = document.querySelector('#btn');
+
+btn.addEventListener('click', (event) => {
+    event.preventDefault();
+    let text = document.getElementById("todo-input");
+    console.log(text.value);
+    let newItem = db.collection("todo-items").add({
+        text: text.value,
+        status: "active"
+    })
+    text.value = "";
+})
+
 function getItems(){
     db.collection("todo-items").onSnapshot((snapshot) => {
         let items = [];
@@ -64,8 +79,6 @@ function generateItems(items){
     })
     document.querySelector(".todo-items").replaceChildren(...todoItems);
 }
-
-
 
 function addItem(event){
     event.preventDefault();

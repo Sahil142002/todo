@@ -1,4 +1,3 @@
-
 const firebaseConfig = {
   apiKey: "AIzaSyCWIZwXCgG96XLOsq0S3EC9zSJqlkGiqNY",
   authDomain: "to-do-live-155f4.firebaseapp.com",
@@ -10,6 +9,7 @@ const firebaseConfig = {
   measurementId: "G-VMXMV63C27"
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-var db = firebase.firestore();
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+export default db;
